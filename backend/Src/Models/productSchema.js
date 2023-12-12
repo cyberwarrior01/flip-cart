@@ -64,7 +64,7 @@ const productSchema = mongoose.Schema({
 });
 
 // Create a Mongoose model for the 'product' collection based on the schema
-const proModel = mongoose.model('product', productSchema);
+const Product = mongoose.model('product', productSchema);
 
 // Export the model for use in other parts of the application
-export default proModel;
+export  {Product};

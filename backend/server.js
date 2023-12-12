@@ -7,7 +7,7 @@ import router from './src/Routes/Products.routes.js'
 import dotenv from 'dotenv'
 import conn from './src/Config/conDb.js';
 dotenv.config();
-
+app.use(express.json())
 conn();
 
 app.get('/',(req,res)=>{
