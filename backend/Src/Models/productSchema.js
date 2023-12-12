@@ -5,7 +5,8 @@ const productSchema = mongoose.Schema({
     // Product ID, should be a string and is required
     Id: {
         type: String,
-        required: [true, 'Please Enter Product Id']
+        required: [true, 'Please Enter Product Id'],
+        unique : true
     },
 
     // Product Name, should be a string, required, and limited to 100 characters
