@@ -2,6 +2,10 @@ import { Box, Button, styled, Typography } from "@mui/material";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StorefrontIcon from '@mui/icons-material/Storefront';
+import LoginDialogue from "../pages/login/LoginDialogue";
+import { useState } from "react";
+
+
 
 const Container = styled(Box)`
   margin-left: 300px;
@@ -27,14 +31,22 @@ lini-height : 24px;
 `
 
 const Buttons = () => {
+
+  const [open , setOpen] = useState(false);
+
+  const openDialog = ()=>{
+    setOpen(true)
+  }
+
   return (
     <Container>
-      <AccountCircleOutlinedIcon />
-      <CustButton variant="text">Login</CustButton>
+      
+      <CustButton variant="text" onClick={()=> openDialog()}> {<AccountCircleOutlinedIcon />} Login</CustButton>
       <ShoppingCartIcon />
       <Typography>Cart</Typography>
       <StorefrontIcon/>
       <Typography>Become a Seller</Typography>
+      <LoginDialogue open={open } setOpen ={setOpen}/>
     </Container>
   );
 };
