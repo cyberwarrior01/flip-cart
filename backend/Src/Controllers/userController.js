@@ -2,7 +2,7 @@
 
 const createUser = (req, res) => {
     try {
-        console.log(req.body , 'hello user ');
+        console.log(req.body );
     } catch (error) {
         console.log();
     }
