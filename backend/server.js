@@ -1,23 +1,32 @@
-// const express = require('express')
-import express from 'express'
-const app = express()
-// const router = require('./src/Routes/Products.routes')
-import router from './src/Routes/Products.routes.js'
-// const dotenv = require('dotenv')
-import dotenv from 'dotenv'
-import conn from './src/Config/conDb.js';
+import express from "express";
+import dotenv from "dotenv";
+import conn from "./src/Config/conDb.js";
+import productsRouter from "./src/Routes/Products.routes.js";
+import userRouter from "./Src/Routes/User.routes.js";
+import cors from "cors"
+// import userRouter from "./src/Routes/User.routes.js";
+
 dotenv.config();
-app.use(express.json())
+const app = express();
+const port = process.env.PORT;
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Database connection
 conn();
 
-app.get('/',(req,res)=>{
-    res.send('hii')
-})
+// Routes
+app.use("/", productsRouter);
+app.use("/", userRouter);
 
+// Default route
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
-app.use('/',router)
-const port = process.env.PORT
-app.listen(port,()=>{
-    console.log("app is listning on " , port);
-}
-)
+// Start the server
+app.listen(port, () => {
+  console.log(`App is listening on port ${port}`);
+});
