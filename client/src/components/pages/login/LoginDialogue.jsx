@@ -107,12 +107,12 @@ const LoginDialogue = ({ open, setOpen }) => {
 
   // singup component and api controler
   const SignupIntitialvalues = {
-    firstname: "",
-    lastename: "",
-    username: "",
-    email: "",
-    password: "",
-    phone: "",
+    Firstname: "",
+    Lastename: "",
+    Username: "",
+    Email: "",
+    Password: "",
+    Phone: "",
   };
   const onInputChange = (e) => {
     setSignup({ ...Signup, [e.target.name]: e.target.value });
@@ -120,7 +120,11 @@ const LoginDialogue = ({ open, setOpen }) => {
   };
   // calling signup api
   const SignupUser = async () => {
-    return await autenticateSignup(Signup);
+     let response =  await autenticateSignup(Signup);
+    if(response){
+    handelClose();}
+    else{
+return;    }
   };
  
   // useState statements
@@ -173,37 +177,37 @@ const LoginDialogue = ({ open, setOpen }) => {
                 label="Enter Firstname"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="firstname"
+                name="Firstname" 
               />
               <TextField
                 label="Enter Lastname"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="lastename"
+                name="Lastname"
               />
               <TextField
                 label="Enter Username"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="username"
+                name="Username"
               />
               <TextField
                 label="Enter Email"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="email"
+                name="Email"
               />
               <TextField
                 label="Enter Password"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="password"
+                name="Password"
               />
               <TextField
                 label="Enter Phone"
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
-                name="phone"
+                name="Phone"
               />
               <Text>
                 By continuing, you agree to Flipkart's Terms of Use and Privacy
