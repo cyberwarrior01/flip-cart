@@ -122,7 +122,7 @@ const LoginDialogue = ({ open, setOpen }) => {
   const SignupUser = async () => {
     return await autenticateSignup(Signup);
   };
-
+ 
   // useState statements
   const [account, toggleAccount] = useState(accountIntitialvalues.login);
   const [Signup, setSignup] = useState(SignupIntitialvalues);
