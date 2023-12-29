@@ -110,7 +110,7 @@ const LoginDialogue = ({ open, setOpen }) => {
   // singup component and api controler
   const SignupIntitialvalues = {
     Firstname: "",
-    Lastename: "",
+    Lastname: "",
     Username: "",
     Email: "",
     Password: "",
@@ -125,7 +125,7 @@ const LoginDialogue = ({ open, setOpen }) => {
      let response =  await autenticateSignup(Signup);
     if(response){
     handelClose();
-    setAccount(Signup.Firstname);
+    setAccount(Signup.Username);
   console.log(Signup.Firstname);
   }
     else{
