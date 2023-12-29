@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import {Dialog , Box ,TextField , Typography , Button , styled} from '@mui/material'
 import { autenticateSignup } from '../../../services/api';
+import {useAuth} from '../../../context/DataProvider'
+
 
 // styled elements starting
 
@@ -122,7 +124,10 @@ const LoginDialogue = ({ open, setOpen }) => {
   const SignupUser = async () => {
      let response =  await autenticateSignup(Signup);
     if(response){
-    handelClose();}
+    handelClose();
+    setAccount(Signup.Firstname);
+  console.log(Signup.Firstname);
+  }
     else{
 return;    }
   };
@@ -130,6 +135,8 @@ return;    }
   // useState statements
   const [account, toggleAccount] = useState(accountIntitialvalues.login);
   const [Signup, setSignup] = useState(SignupIntitialvalues);
+  const {setAccount} =  useAuth();
+  
 
   return (
     // starting of dialogue box

@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 const createUser = async (req, res) => {
   try {
-    // console.log(req.body );
+    console.log(req.body );
     const { Firstname, Lastname, Username, Email, Password, Phone } = req.body;
     
 
