@@ -45,9 +45,9 @@ const NavBar = () => {
     
     <Components>
         {
-            NavData.map( data => (
-                <Content>
-                    <Pic src={data.url} alt = "nav"/>
+            NavData.map((data, index) => (
+                <Content key={index}>
+                    <Pic  src={data.url} alt = "nav"/>
                     <Text>{data.text}</Text>
                 </Content>
             ))

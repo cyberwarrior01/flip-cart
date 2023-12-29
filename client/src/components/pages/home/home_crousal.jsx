@@ -42,8 +42,9 @@ const Hcrousal = ()=>{
         
         >
             {
-                BannerData.map(data =>(
-                    <Pic src={data.url} alt='img'/>
+                BannerData.map((data, index)=>(
+                    // <Pic src={data.url} alt='img'/>
+                    <Pic key={index} src={data.url} alt={`Banner ${index + 1}`} />
                 ))
             }
         </Carousel>
